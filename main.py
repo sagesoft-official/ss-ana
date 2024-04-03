@@ -28,7 +28,7 @@ with ui.card().classes("absolute-center"):
         print(f"1:{page}")
         ui.button(page, on_click=lambda : ui.open(f"ana/{page}")).classes("w-full")
         @ui.page(f"/ana/{page}")
-        def ana_page():
+        def ana_page(page = page):
             print(f"2:{page}")
             file = f"data/{page}.json"
             if not os.path.exists(file):
@@ -62,7 +62,7 @@ with ui.card().classes("absolute-center"):
             return ana_messages
 
         @ui.page(f"/ana/{page}/json")
-        def ana_json_page():
+        def ana_json_page(page = page):
             print(f"3:{page}")
             from fastapi.responses import JSONResponse
             from fastapi.encoders import jsonable_encoder
