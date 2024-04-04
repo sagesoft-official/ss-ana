@@ -1,0 +1,21 @@
+map $http_upgrade $connection_upgrade {
+        default upgrade;
+        '' close;
+}
+
+server {
+        server_name domain;
+
+	location / {
+		return 301 http://domain/nicegui/; # 如使用ssl加密，将http改为https
+}
+        location ~ ^/nicegui/(.*)$ {
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+            proxy_set_header Authorization $http_authorization;
+            proxy_pass_header Authorization;
+
+            proxy_pass http://127.0.0.1:7777/$1?$args;
+            proxy_set_header X-Forwarded-Prefix /nicegui;
+        }
+}
