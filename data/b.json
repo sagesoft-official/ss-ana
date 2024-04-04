@@ -1,0 +1,14 @@
+[
+{
+    "id": 1,
+    "msg": "msgb1",
+    "author": "authorb1",
+    "time": "timeb1"
+},
+{
+    "id": 2,
+    "msg": "msgb2",
+    "author": "authorb2",
+    "time": "timeb2"
+}
+]

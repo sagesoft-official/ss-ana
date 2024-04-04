@@ -3,7 +3,7 @@ import json
 import random
 from nicegui import ui
 
-version = "v0.0.1"
+version = "v1.0.0"
 pages = []
 
 def file_not_found_error(file):
@@ -26,7 +26,7 @@ with ui.card().classes("absolute-center"):
     ui.badge(f"桑尾草原语录 | ss_ana {version}", outline=True)
     for page in pages:
         print(f"1:{page}")
-        ui.button(page, on_click=lambda : ui.open(f"ana/{page}")).classes("w-full")
+        ui.button(page, on_click=lambda page = page : ui.open(f"ana/{page}")).classes("w-full")
         @ui.page(f"/ana/{page}")
         def ana_page(page = page):
             print(f"2:{page}")
