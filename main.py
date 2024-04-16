@@ -57,7 +57,6 @@ with ui.card().classes("absolute-center"):
                 with ui.row():
                     ui.badge("时间")
                     ui.label(time)
-            return ana_messages
 
         @ui.page(f"/ana/{page}/json")
         def ana_json_page(page = page):
