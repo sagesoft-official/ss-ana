@@ -3,7 +3,7 @@ import json
 import random
 from nicegui import ui, app
 
-version = "v1.0.1"
+version = "v1.0.2"
 pages = []
 app.add_static_files('/static', 'static')
 
@@ -26,7 +26,7 @@ for dir in os.walk("data"):
 with ui.card().classes("absolute-center"):
     ui.badge(f"桑尾草原语录 | ss-ana {version}", outline=True)
     for page in pages:
-        ui.button(page, on_click=lambda page = page : ui.open(f"ana/{page}")).classes("w-full")
+        ui.button(page, on_click=lambda page = page : ui.navigate.to(f"ana/{page}")).classes("w-full")
         @ui.page(f"/ana/{page}")
         def ana_page(page = page):
             file = f"data/{page}.json"
@@ -57,7 +57,6 @@ with ui.card().classes("absolute-center"):
                 with ui.row():
                     ui.badge("时间")
                     ui.label(time)
-            return ana_messages
 
         @ui.page(f"/ana/{page}/json")
         def ana_json_page(page = page):

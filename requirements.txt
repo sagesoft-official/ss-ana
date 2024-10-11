@@ -1,1 +1,1 @@
-nicegui==1.4.19
+nicegui==2.3.0
